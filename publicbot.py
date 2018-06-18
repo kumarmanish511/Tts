@@ -14,7 +14,7 @@ from time import sleep
 # pip3 install bs4 gtts
 from bs4 import BeautifulSoup
 from gtts import gTTS
-import time, random, sys, json, codecs,  threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast
+import time, random, sys, json, codecs,  threading, glob, re, string, os, requests, subprocess, six, urllib, urllib.parse, ast, pytz
 botStart = time.time()
 prank = LineClient()
 prank.log("Auth Token : " + str(prank.authToken))
@@ -64,7 +64,8 @@ cl = prank
 #MINAT PM ID  👉     http://line.me/ti/p/~adiputra.95
 settings = {
     "autoAdd":False,
-    "autoJoin":False,
+    "autoJoin":True,
+    "wel":True,
 }
 
 read = {
@@ -113,42 +114,42 @@ def mention(to, nama):
 #===============SB ONLY====================
 #===================================#
 def help():
-    helpMessage = "╭━━╦℘̰̰̈́ґ̰̰̈́∂̰̰̈́η̰̰̈́к̰̰̈́╦в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́╦━━╮\n┣╦━━━╩PUBLIC BOTS╩━━━━" + "\n" + \
-                  "┣╦Nama Bot╦ " + prankProfile.displayName + "\n" + \
-                  "┣╦Help" + "\n" + \
-                  "┣╦Set" + "\n" + \
-                  "┣╦Me" + "\n" + \
-                  "┣╦Add" + "\n" + \
-                  "┣╦Creator" + "\n" + \
-                  "┣╦Restart" + "\n" + \
-                  "┣╦Speed" + "\n" + \
-                  "┣╦Runtime" + "\n" + \
-                  "┣╦Mymid" + "\n" + \
-                  "┣╦Myname" + "\n" + \
-                  "┣╦Mybio" + "\n" + \
-                  "┣╦Mypicture" + "\n" + \
-                  "┣╦Myvideo" + "\n" + \
-                  "┣╦Mycover" + "\n" + \
-                  "┣╦Getmid @" + "\n" + \
-                  "┣╦Getbio @" + "\n" + \
-                  "┣╦Getname @" + "\n" + \
-                  "┣╦Getpicture @" + "\n" + \
-                  "┣╦Getvideo @" + "\n" + \
-                  "┣╦Getcontact @" + "\n" + \
-                  "┣╦Getcover @" + "\n" + \
-                  "┣╦Getprofile @" + "\n" + \
+    helpMessage = "╭⚫️◄]·♦·ᴍᴀɴɪsʜ ᴘᴜʙʟɪᴄ ʙᴏᴛ·♦·[►⚫️╮\n┣╦━━━╩⭐️ᴘᴜʙʟɪᴄ ʙᴏᴛ⭐️╩━━━━" + "\n" + \
+                  "┣▶️◍Name Bot " + prankProfile.displayName + "\n" + \
+                  "┣▶️●Help" + "\n" + \
+                  "┣▶️◍Set" + "\n" + \
+                  "┣▶️●Me" + "\n" + \
+                  "┣▶◍Add" + "\n" + \
+                  "┣▶️●Creator" + "\n" + \
+                  "┣▶️◍Restart" + "\n" + \
+                  "┣▶️●Speed" + "\n" + \
+                  "┣▶◍Runtime" + "\n" + \
+                  "┣▶●Mymid" + "\n" + \
+                  "┣▶◍Myname" + "\n" + \
+                  "┣▶●Mybio" + "\n" + \
+                  "┣▶◍Mypicture" + "\n" + \
+                  "┣▶●Myvideo" + "\n" + \
+                  "┣▶◍Mycover" + "\n" + \
+                  "┣▶●Getmid @" + "\n" + \
+                  "┣▶◍Getbio @" + "\n" + \
+                  "┣▶●Getname @" + "\n" + \
+                  "┣▶Getpicture @" + "\n" + \
+                  "┣▶●Getvideo @" + "\n" + \
+                  "┣▶◍Getcontact @" + "\n" + \
+                  "┣▶●Getcover @" + "\n" + \
+                  "┣▶◍Getprofile @" + "\n" + \
                   "┣━━━━━━━━━━━━" + "\n" + \
-                  "┣╦Cloneprofile @" + "\n" + \
-                  "┣╦Restoreprofile" + "\n" + \
-                  "┣╦Cekmid *mid" + "\n" + \
-                  "┣╦Friendlist" + "\n" + \
-                  "┣╦Blocklist" + "\n" + \
-                  "┣╦Mention" + "\n" + \
-                  "┣╦Lurk:on" + "\n" + \
-                  "┣╦Lurk:off" + "\n" + \
-                  "┣╦Lurk:rest" + "\n" + \
-                  "┣╦Lurkers" + "\n" + \
-                  "┣━━━━━╩━━━╩━━━━━\n┣━╦🇮🇩CREATOR INDONESIA🇮🇩╦━╣\n╰━━╩℘̰̰̈́ґ̰̰̈́∂̰̰̈́η̰̰̈́к╩̰̰̈́в̰̰̈́❍̰̰̈́т̰̰̈́ѕ̰̰̈́╩━━╯"
+                  "┣▶◍Cloneprofile @" + "\n" + \
+                  "┣▶●Restoreprofile" + "\n" + \
+                  "┣▶◍Cekmid *mid" + "\n" + \
+                  "┣▶●Friendlist" + "\n" + \
+                  "┣▶◍Blocklist" + "\n" + \
+                  "┣▶●Mention" + "\n" + \
+                  "┣▶◍Lurk:on" + "\n" + \
+                  "┣▶●Lurk:off" + "\n" + \
+                  "┣▶◍Lurk:rest" + "\n" + \
+                  "┣▶●Lurkers" + "\n" + \
+                  "┣━━━━━╩━━━╩━━━━━\n┣━⚫️ᴍᴀɴɪsʜ ᴘᴜʙʟɪᴄ ʙᴏᴛ⚫️━╣\n╰━━╩●◍Creator:Indian◍●╩━━╯"
     return helpMessage
 while True:
     try:
@@ -158,12 +159,13 @@ while True:
             if op.type == 5:
                 prank.findAndAddContactsByMid(op.param1)
                 xname = prank.getContact(op.param1).displayName
-                prank.sendMessage(op.param1, "Hay " + xname + "\nBOT PUBLIC VORKED : PRANKBOTS\n\nOWNER BOTS\nhttp://line.me/ti/p/~adiputra.95")
+                prank.sendMessage(op.param1, "Hey " + xname + "\nBOT PUBLIC : ◄]·♦·ᴍᴀɴɪsʜ ᴘᴜʙʟɪᴄ ʙᴏᴛ·♦·[►\n\nOWNER OF BOTS:\nhttp://line.me/ti/p/lMdfzcqu_S\n Add Our Official account\nhttp://line.me/ti/p/~@ory8259i")
             if op.type == 13:
                 print ("[NOTIFIED_INVITE_INTO_GROUP]")
                 if prankMID in op.param3:
-                    G = prank.getGroup(op.param1)
+                    G = prank.getGroup(op.param1)                    
                     prank.acceptGroupInvitation(op.param1)
+               
             if op.type == 26: ## JIKA INI DI GANTI KE 25 JADI SELFBOT ONLY ^_^ [VORKED PRANKBOTS]
                 print ("[ 26 ] READ MESSAGE")
                 msg = op.message
@@ -184,7 +186,7 @@ while True:
                                 start = time.time()
                                 prank.sendMessage(receiver, "waitting..")
                                 elapsed_time = time.time() - start
-                                prank.sendMessage(receiver, "%sdetik" % (elapsed_time))
+                                prank.sendMessage(receiver, "%sSecond" % (elapsed_time))
                             elif text.lower() == 'restart':
                                 prank.sendMessage(msg.to, "Bot Program has been restarted")
                                 restartBot()
@@ -195,38 +197,38 @@ while True:
 #==============================================================================#
                             elif text.lower() == 'me':
                                 prank.sendContact(msg.to, prankMID)
-                                prank.sendMessage(msg.to,"Ini kontak saya")
+                                prank.sendMessage(msg.to,"Ye me hu")
                                 prank.sendMessage(receiver, None, contentMetadata={'mid': sender}, contentType=13)
-                                prank.sendMessage(msg.to,"Ini kontak kamu")
+                                prank.sendMessage(msg.to,"Aur ye ap")
                             elif text.lower() == 'add':		
                                 prank.sendMessage(msg.to,"❂•••••••••✧••••••••••❂")
-                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'u5818cb4404411c2e2e6e6937d172cca8'}, contentType=13)
-                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'udfaf52176415b46cb445ae2757ec85f3'}, contentType=13)
-                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'u17a086ccff618e754588a1108335867f'}, contentType=13)
+                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'u33e548be611b2ff1b8b7bdbcfea139f3'}, contentType=13)
+                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'u33e548be611b2ff1b8b7bdbcfea139f3'}, contentType=13)
+                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'u33e548be611b2ff1b8b7bdbcfea139f3'}, contentType=13)
                                 prank.sendMessage(msg.to,"❂•••••••••✧••••••••••❂")
                             elif text.lower() == 'creator':		
                                 prank.sendMessage(msg.to,"❂•••••••••✧••••••••••❂")
-                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'u961be7189409ffd9138c7206e35003b0'}, contentType=13)
+                                prank.sendMessage(receiver, None, contentMetadata={'mid': 'u33e548be611b2ff1b8b7bdbcfea139f3'}, contentType=13)
                                 prank.sendMessage(msg.to,"❂•••••••••✧••••••••••❂")
                             elif text.lower() == 'mymid':
                                 prank.sendMessage(msg.to, sender)
-                                prank.sendMessage(msg.to,"Ini mid kamu")
+                                prank.sendMessage(msg.to,"Ye mera he")
                             elif text.lower() == 'myname':
                                 me = prank.getContact(prankMID)
                                 me1 = prank.getContact(sender)
                                 prank.sendMessage(msg.to,"nama ku\n" + me.displayName + "\nnama kamu\n" + me1.displayName)
                             elif text.lower() == 'mybio':
                                 me = prank.getContact(sender)
-                                prank.sendMessage(msg.to,"[Status kamu]\n" + me.statusMessage)
+                                prank.sendMessage(msg.to,"[●Status●]\n" + me.statusMessage)
                             elif text.lower() == 'mypicture':
                                 h = prank.getContact(prankMID)
                                 path = "http://dl.profile.line.naver.jp/" + h.pictureStatus
                                 prank.sendImageWithURL(msg.to, str(path))
-                                prank.sendMessage(msg.to,"Ini foto profile saya")
+                                prank.sendMessage(msg.to,"My Profile")
                                 me1 = prank.getContact(sender)
                                 path = "http://dl.profile.line-cdn.net/" + me1.pictureStatus
                                 prank.sendImageWithURL(msg.to, str(path))
-                                prank.sendMessage(msg.to,"Ini foto profile kamu")
+                                prank.sendMessage(msg.to,"Your Profile")
                             elif text.lower() == 'myvideo':
                                 me = prank.getContact(sender)
                                 prank.sendVideoWithURL(to,"http://dl.profile.line-cdn.net/" + me.pictureStatus + "/vp")
@@ -234,11 +236,11 @@ while True:
                                 me = prank.getContact(prankMID)
                                 cover = channel.getProfileCoverURL(prankMID)    
                                 prank.sendImageWithURL(msg.to, cover)
-                                prank.sendMessage(msg.to,"Ini foto branda saya")
+                                prank.sendMessage(msg.to,"My cover pic")
                                 me1 = prank.getContact(sender)
                                 cover1 = channel.getProfileCoverURL(sender)    
                                 prank.sendImageWithURL(msg.to, cover1)
-                                prank.sendMessage(msg.to,"Ini foto branda kamu")
+                                prank.sendMessage(msg.to,"Your cover pic")
                             elif 'getmid' in text.lower():
                                 if 'MENTION' in msg.contentMetadata.keys()!= None:
                                     names = re.findall(r'@(\w+)', text)
@@ -341,9 +343,9 @@ while True:
                                         break
                                     try:
                                         prank.cloneContactProfile(contact)
-                                        prank.sendMessage(msg.to, "Berhasil clone member tunggu beberapa saat sampai profile berubah")
+                                        prank.sendMessage(msg.to, "Cloning member pls wait.")
                                     except:
-                                        prank.sendMessage(msg.to, "Gagal clone member")
+                                        prank.sendMessage(msg.to, "Failed clone member")
                             elif text.lower() == 'restoreprofile':
                                 try:
                                     clientProfile.displayName = str(myProfile["displayName"])
@@ -351,9 +353,9 @@ while True:
                                     clientProfile.pictureStatus = str(myProfile["pictureStatus"])
                                     prank.updateProfileAttribute(8, clientProfile.pictureStatus)
                                     prank.updateProfile(clientProfile)
-                                    prank.sendMessage(msg.to, "Berhasil restore profile tunggu beberapa saat sampai profile berubah")
+                                    prank.sendMessage(msg.to, "Restored profile success")
                                 except:
-                                    prank.sendMessage(msg.to, "Gagal restore profile")
+                                    prank.sendMessage(msg.to, "failed restore profile")
                             elif 'cekmid' in text.lower():
                                 separate = text.split(" ")
                                 saya = text.replace(separate[0] + " ","")
@@ -522,7 +524,7 @@ while True:
                                         pass
                                     prank.sendMessage(msg.to, "Reset reading point:\n" + readTime)
                                 else:
-                                    prank.sendMessage(msg.to, "Lurking belum diaktifkan ngapain di reset?")
+                                    prank.sendMessage(msg.to, "Lurking has not been activated are you doing in the reset button?")
                                     
                             elif text.lower() == 'lurkers':
                                 tz = pytz.timezone("Asia/Jakarta")
@@ -586,3 +588,5 @@ while True:
             
     except Exception as e:
         prank.log("[SINGLE_TRACE] ERROR : " + str(e))
+        
+        
